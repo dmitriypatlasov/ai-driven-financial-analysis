@@ -480,9 +480,9 @@ def plot_forecast(spy_data, spy_rv_predictions, qqq_data, qqq_rv_predictions, ob
     # Преобразуем spy_rv_predictions в одномерный массив
     spy_rv_predictions = spy_rv_predictions.flatten()
     # Создаем фигуру
-    fig = go.Figure()
+    fig_spy = go.Figure()
     # Линия реализованной волатильности
-    fig.add_trace(go.Scatter(
+    fig_spy.add_trace(go.Scatter(
     x=realized_volatility.index,
     y=realized_volatility,
     mode='lines',
@@ -491,7 +491,7 @@ def plot_forecast(spy_data, spy_rv_predictions, qqq_data, qqq_rv_predictions, ob
     ))
     
     # Точки предсказанных значений
-    fig.add_trace(go.Scatter(
+    fig_spy.add_trace(go.Scatter(
     x=future_indices,
     y=spy_rv_predictions,
     mode='markers',
@@ -504,7 +504,7 @@ def plot_forecast(spy_data, spy_rv_predictions, qqq_data, qqq_rv_predictions, ob
     x_values = [last_index] + future_indices
     y_values = [realized_volatility.iloc[-1]] + spy_rv_predictions.tolist()
     
-    fig.add_trace(go.Scatter(
+    fig_spy.add_trace(go.Scatter(
     x=x_values,
     y=y_values,
     mode='lines',
@@ -513,7 +513,7 @@ def plot_forecast(spy_data, spy_rv_predictions, qqq_data, qqq_rv_predictions, ob
     ))
     
     # Настройка осей
-    fig.update_layout(
+    fig_spy.update_layout(
     width=1000,  # Ширина фигуры
     height=500,  # Высота фигуры
     title=f"SPY Realized Volatility Forecast {observe_date.strftime('%Y-%m-%d')}",
@@ -530,8 +530,6 @@ def plot_forecast(spy_data, spy_rv_predictions, qqq_data, qqq_rv_predictions, ob
         x=0.01, y=0.99, bgcolor='rgba(255,255,255,0.7)'
     )
     )
-    # Показать график
-    fig.show()
     
     # график rv qqq
     realized_volatility = qqq_data['rv_t']
@@ -539,15 +537,15 @@ def plot_forecast(spy_data, spy_rv_predictions, qqq_data, qqq_rv_predictions, ob
     future_indices = [last_index + pd.DateOffset(days=i * step) for i in range(1, qqq_rv_predictions.shape[1] + 1)]
     qqq_rv_predictions = qqq_rv_predictions.flatten()
     
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(
+    fig_qqq = go.Figure()
+    fig_qqq.add_trace(go.Scatter(
     x=realized_volatility.index,
     y=realized_volatility,
     mode='lines',
     name='Realized Volatility',
     line=dict(color='black', width=2)
     ))
-    fig.add_trace(go.Scatter(
+    fig_qqq.add_trace(go.Scatter(
     x=future_indices,
     y=qqq_rv_predictions,
     mode='markers',
@@ -557,14 +555,14 @@ def plot_forecast(spy_data, spy_rv_predictions, qqq_data, qqq_rv_predictions, ob
     ))
     x_values = [last_index] + future_indices
     y_values = [realized_volatility.iloc[-1]] + qqq_rv_predictions.tolist()
-    fig.add_trace(go.Scatter(
+    fig_qqq.add_trace(go.Scatter(
     x=x_values,
     y=y_values,
     mode='lines',
     name='Forecast Line',
     line=dict(color='coral', width=2, dash='dash')
     ))
-    fig.update_layout(
+    fig_qqq.update_layout(
     width=1000,  # Ширина фигуры
     height=500,  # Высота фигуры
     title=f"QQQ Realized Volatility Forecast from {observe_date.strftime('%Y-%m-%d')}",
@@ -581,7 +579,8 @@ def plot_forecast(spy_data, spy_rv_predictions, qqq_data, qqq_rv_predictions, ob
         x=0.01, y=0.99, bgcolor='rgba(255,255,255,0.7)'
     )
     )
-    fig.show()
+
+    return fig_spy, fig_qqq
 
 def option_trading_recomendation(spy_forecast_data, qqq_forecast_data, spy_rv_predictions, qqq_rv_predictions, observe_date):
     spy_forecast_data['rv_pred_t+5'] = spy_rv_predictions[0, 0]
