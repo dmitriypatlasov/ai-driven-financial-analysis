@@ -404,14 +404,17 @@ def create_copula(pdf_recovered_spy, pdf_recovered_qqq):
     return copula_results, spy_states, qqq_states, observe_date
 
 def copula_plot(spy_states, qqq_states, observe_date):
-    # Оценка плотности KDE
-    kde = gaussian_kde([spy_states, qqq_states])
-    
-    # Создаём сетку для оценки
+    # Преобразуем данные в нужную форму для KDE
+    data = np.vstack([spy_states, qqq_states])  # (2, N)
+    kde = gaussian_kde(data)
+
+    # Создаем сетку для плотности
     x = np.linspace(spy_states.min(), spy_states.max(), 100)
     y = np.linspace(qqq_states.min(), qqq_states.max(), 100)
     X, Y = np.meshgrid(x, y)
     Z = kde(np.vstack([X.ravel(), Y.ravel()])).reshape(X.shape)
+
+    # Создаём 3D-график
     fig = go.Figure(data=[go.Surface(z=Z, x=X, y=Y, colorscale="plasma")])
     fig.update_layout(
         title=f"Density Plot of SPY and QQQ States on {observe_date.strftime('%Y-%m-%d')}",
@@ -422,7 +425,7 @@ def copula_plot(spy_states, qqq_states, observe_date):
         )
     )
     
-    fig.show()
+    return fig
     
 def lstm_forecast(copula_results, spy_lstm_model, qqq_lstm_model, scaler_spy_lstm, scaler_qqq_lstm):
     def calculate_realized_volatility(data, window):
