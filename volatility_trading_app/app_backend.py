@@ -594,160 +594,160 @@ def option_trading_recomendation(spy_forecast_data, qqq_forecast_data, spy_rv_pr
     qqq_forecast_data['rv_pred_t+15'] = qqq_rv_predictions[0, 2]
     qqq_forecast_data['rv_pred_t+20'] = qqq_rv_predictions[0, 3]
     
-    st.write('SPY')
+    st.subheader('SPY')
     st.write('\n1. vega-scalping:')
     if spy_forecast_data['rv_pred_t+5'][0] >= spy_forecast_data['rv_t'][0] * 1.05:
         growth = spy_forecast_data['rv_pred_t+5'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 5-дн рост RV по SPY > 5% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах SPY (наибольшая vega, экспирация опционов от {(observe_date + timedelta(5-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(5+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.65), winrate (44%), ожидаемая доходность (12%), сделок (558), средняя vega (23.40)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.65), winrate (44%), ожидаемая доходность (12%), сделок (558), средняя vega (23.40)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+5'][0] >= spy_forecast_data['rv_t'][0] * 1.1:
         growth = spy_forecast_data['rv_pred_t+5'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 5-дн рост RV по SPY > 10% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах SPY (наибольшая vega, экспирация опционов от {(observe_date + timedelta(5-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(5+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.62), winrate (44%), ожидаемая доходность (11%), сделок (380), средняя vega (23.67)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.62), winrate (44%), ожидаемая доходность (11%), сделок (380), средняя vega (23.67)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+5'][0] >= spy_forecast_data['rv_t'][0] * 1.15:
         growth = spy_forecast_data['rv_pred_t+5'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 5-дн рост RV по SPY > 15% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах SPY (наибольшая vega, экспирация опционов от {(observe_date + timedelta(5-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(5+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.82), winrate (45%), ожидаемая доходность (15%), сделок (198), средняя vega (23.58)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.82), winrate (45%), ожидаемая доходность (15%), сделок (198), средняя vega (23.58)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+10'][0] >= spy_forecast_data['rv_t'][0] * 1.05:
         growth = spy_forecast_data['rv_pred_t+10'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 10-дн рост RV по SPY > 5% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах SPY (наибольшая vega, экспирация опционов от {(observe_date + timedelta(10-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(10+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.65), winrate (47%), ожидаемая доходность (16%), сделок (312), средняя vega (29.95)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.65), winrate (47%), ожидаемая доходность (16%), сделок (312), средняя vega (29.95)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+10'][0] >= spy_forecast_data['rv_t'][0] * 1.1:
         growth = spy_forecast_data['rv_pred_t+10'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 10-дн рост RV по SPY > 10% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах SPY (наибольшая vega, экспирация опционов от {(observe_date + timedelta(10-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(10+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.67), winrate (47%), ожидаемая доходность (17%), сделок (208), средняя vega (30.00)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.67), winrate (47%), ожидаемая доходность (17%), сделок (208), средняя vega (30.00)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+10'][0] >= spy_forecast_data['rv_t'][0] * 1.15:
         growth = spy_forecast_data['rv_pred_t+10'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 10-дн рост RV по SPY > 15% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах SPY (наибольшая vega, экспирация опционов от {(observe_date + timedelta(10-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(10+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.69), winrate (48%), ожидаемая доходность (16%), сделок (124), средняя vega (30.04)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.69), winrate (48%), ожидаемая доходность (16%), сделок (124), средняя vega (30.04)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+10'][0] <= spy_forecast_data['rv_t'][0] * 0.95:
         growth = spy_forecast_data['rv_pred_t+10'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 10-дн падение RV по SPY > 5% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах SPY (наибольшая vega, экспирация опционов от {(observe_date + timedelta(10-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(10+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.52), winrate (45%), ожидаемая доходность (13%), сделок (246), средняя vega (29.58)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.52), winrate (45%), ожидаемая доходность (13%), сделок (246), средняя vega (29.58)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+10'][0] <= spy_forecast_data['rv_t'][0] * 0.9:
         growth = spy_forecast_data['rv_pred_t+10'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 10-дн падение RV по SPY > 10% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах SPY (наибольшая vega, экспирация опционов от {(observe_date + timedelta(10-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(10+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.61), winrate (44%), ожидаемая доходность (15%), сделок (127), средняя vega (29.17)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.61), winrate (44%), ожидаемая доходность (15%), сделок (127), средняя vega (29.17)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+20'][0] >= spy_forecast_data['rv_t'][0] * 1.05:
         growth = spy_forecast_data['rv_pred_t+20'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 20-дн рост RV по SPY > 5% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах SPY (наибольшая vega, экспирация опционов от {(observe_date + timedelta(20-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(20+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.59), winrate (51%), ожидаемая доходность (20%), сделок (251), средняя vega (39.59)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.59), winrate (51%), ожидаемая доходность (20%), сделок (251), средняя vega (39.59)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+20'][0] <= spy_forecast_data['rv_t'][0] * 0.85:
         growth = spy_forecast_data['rv_pred_t+20'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 20-дн падение RV по SPY > 15% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах SPY (наибольшая vega, экспирация опционов от {(observe_date + timedelta(20-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(20+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.58), winrate (48%), ожидаемая доходность (22%), сделок (238), средняя vega (39.21)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.58), winrate (48%), ожидаемая доходность (22%), сделок (238), средняя vega (39.21)</i>', unsafe_allow_html=True)
 
     st.write('\n2. delta-scalping:')
     if spy_forecast_data['rv_pred_t+10'][0] >= spy_forecast_data['rv_t'][0] * 1.15:
         growth = spy_forecast_data['rv_pred_t+10'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 10-дн рост RV по SPY > 15% (прогноз {growth:.2%}), стратегия: delta-scalping на колл-опционах SPY (наибольшая delta, экспирация опционов от {(observe_date + timedelta(10-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(10+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.94), winrate (62%), ожидаемая доходность (11%), сделок (123), средняя delta (0.85)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.94), winrate (62%), ожидаемая доходность (11%), сделок (123), средняя delta (0.85)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+20'][0] >= spy_forecast_data['rv_t'][0] * 1.05:
         growth = spy_forecast_data['rv_pred_t+20'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 20-дн рост RV по SPY > 5% (прогноз {growth:.2%}), стратегия: delta-scalping на колл-опционах SPY (наибольшая delta, экспирация опционов от {(observe_date + timedelta(20-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(20+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.82), winrate (61%), ожидаемая доходность (16%), сделок (246), средняя delta (0.80)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.82), winrate (61%), ожидаемая доходность (16%), сделок (246), средняя delta (0.80)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+20'][0] >= spy_forecast_data['rv_t'][0] * 1.10:
         growth = spy_forecast_data['rv_pred_t+20'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 20-дн рост RV по SPY > 10% (прогноз {growth:.2%}), стратегия: delta-scalping на колл-опционах SPY (наибольшая delta, экспирация опционов от {(observe_date + timedelta(20-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(20+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.88), winrate (58%), ожидаемая доходность (16%), сделок (172), средняя delta (0.81)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.88), winrate (58%), ожидаемая доходность (16%), сделок (172), средняя delta (0.81)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+20'][0] >= spy_forecast_data['rv_t'][0] * 1.15:
         growth = spy_forecast_data['rv_pred_t+20'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 20-дн рост RV по SPY > 15% (прогноз {growth:.2%}), стратегия: delta-scalping на колл-опционах SPY (наибольшая delta, экспирация опционов от {(observe_date + timedelta(20-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(20+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (1.06), winrate (59%), ожидаемая доходность (16%), сделок (115), средняя delta (0.83)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (1.06), winrate (59%), ожидаемая доходность (16%), сделок (115), средняя delta (0.83)</i>', unsafe_allow_html=True)
         
     st.write('\n3. straddle:')
     if spy_forecast_data['rv_pred_t+10'][0] <= spy_forecast_data['rv_t'][0] * 0.9:
         growth = spy_forecast_data['rv_pred_t+10'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 10-дн падение RV по SPY > 10% (прогноз {growth:.2%}), стратегия: straddle на опционах SPY (самые дальние от страйка колл- и пут-опционы, экспирация опционов от {(observe_date + timedelta(10-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(10+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.35), winrate (59%), ожидаемая доходность (4%), сделок (129)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.35), winrate (59%), ожидаемая доходность (4%), сделок (129)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+15'][0] <= spy_forecast_data['rv_t'][0] * 0.9:
         growth = spy_forecast_data['rv_pred_t+15'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 15-дн падение RV по SPY > 10% (прогноз {growth:.2%}), стратегия: straddle на опционах SPY (самые дальние от страйка колл- и пут-опционы, экспирация опционов от {(observe_date + timedelta(15-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(15+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.32), winrate (54%), ожидаемая доходность (5%), сделок (172)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.32), winrate (54%), ожидаемая доходность (5%), сделок (172)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+20'][0] <= spy_forecast_data['rv_t'][0] * 0.95:
         growth = spy_forecast_data['rv_pred_t+20'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 20-дн падение RV по SPY > 5% (прогноз {growth:.2%}), стратегия: straddle на опционах SPY (самые дальние от страйка колл- и пут-опционы, экспирация опционов от {(observe_date + timedelta(20-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(20+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.35), winrate (56%), ожидаемая доходность (6%), сделок (378)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.35), winrate (56%), ожидаемая доходность (6%), сделок (378)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+20'][0] <= spy_forecast_data['rv_t'][0] * 0.9:
         growth = spy_forecast_data['rv_pred_t+20'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 20-дн падение RV по SPY > 10% (прогноз {growth:.2%}), стратегия: straddle на опционах SPY (самые дальние от страйка колл- и пут-опционы, экспирация опционов от {(observe_date + timedelta(20-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(20+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.36), winrate (57%), ожидаемая доходность (6%), сделок (305)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.36), winrate (57%), ожидаемая доходность (6%), сделок (305)</i>', unsafe_allow_html=True)
     if spy_forecast_data['rv_pred_t+20'][0] <= spy_forecast_data['rv_t'][0] * 0.85:
         growth = spy_forecast_data['rv_pred_t+20'][0] / spy_forecast_data['rv_t'][0] - 1
         st.write(f"  - 20-дн падение RV по SPY > 15% (прогноз {growth:.2%}), стратегия: straddle на опционах SPY (самые дальние от страйка колл- и пут-опционы, экспирация опционов от {(observe_date + timedelta(20-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(20+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.32), winrate (57%), ожидаемая доходность (5%), сделок (230)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.32), winrate (57%), ожидаемая доходность (5%), сделок (230)</i>', unsafe_allow_html=True)
 
-    st.write('\nQQQ')
+    st.subheader('\nQQQ')
     st.write('\n1. vega-scalping:')
     if qqq_forecast_data['rv_pred_t+5'][0] >= qqq_forecast_data['rv_t'][0] * 1.05:
         growth = qqq_forecast_data['rv_pred_t+5'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 5-дн рост RV по QQQ > 5% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах QQQ (наибольшая vega, экспирация опционов от {(observe_date + timedelta(5-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(5+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (1.37), winrate (52%), ожидаемая доходность (26%), сделок (112), средняя vega (18.21)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (1.37), winrate (52%), ожидаемая доходность (26%), сделок (112), средняя vega (18.21)</i>', unsafe_allow_html=True)
     if qqq_forecast_data['rv_pred_t+10'][0] >= qqq_forecast_data['rv_t'][0] * 1.05:
         growth = qqq_forecast_data['rv_pred_t+10'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 10-дн рост RV по QQQ > 5% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах QQQ (наибольшая vega, экспирация опционов от {(observe_date + timedelta(10-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(10+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (1.23), winrate (51%), ожидаемая доходность (33%), сделок (174), средняя vega (23.65)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (1.23), winrate (51%), ожидаемая доходность (33%), сделок (174), средняя vega (23.65)</i>', unsafe_allow_html=True)
     if qqq_forecast_data['rv_pred_t+15'][0] >= qqq_forecast_data['rv_t'][0] * 1.05:
         growth = qqq_forecast_data['rv_pred_t+15'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 15-дн рост RV по QQQ > 5% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах QQQ (наибольшая vega, экспирация опционов от {(observe_date + timedelta(15-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(15+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (1.12), winrate (52%), ожидаемая доходность (40%), сделок (207), средняя vega (28.71)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (1.12), winrate (52%), ожидаемая доходность (40%), сделок (207), средняя vega (28.71)</i>', unsafe_allow_html=True)
     if qqq_forecast_data['rv_pred_t+15'][0] >= qqq_forecast_data['rv_t'][0] * 1.1:
         growth = qqq_forecast_data['rv_pred_t+15'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 15-дн рост RV по QQQ > 10% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах QQQ (наибольшая vega, экспирация опционов от {(observe_date + timedelta(15-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(15+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (1.15), winrate (52%), ожидаемая доходность (39%), сделок (143), средняя vega (29.16)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (1.15), winrate (52%), ожидаемая доходность (39%), сделок (143), средняя vega (29.16)</i>', unsafe_allow_html=True)
     if qqq_forecast_data['rv_pred_t+20'][0] >= qqq_forecast_data['rv_t'][0] * 1.05:
         growth = qqq_forecast_data['rv_pred_t+20'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 20-дн рост RV по QQQ > 5% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах QQQ (наибольшая vega, экспирация опционов от {(observe_date + timedelta(20-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(20+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (1.09), winrate (54%), ожидаемая доходность (47%), сделок (183), средняя vega (32.92)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (1.09), winrate (54%), ожидаемая доходность (47%), сделок (183), средняя vega (32.92)</i>', unsafe_allow_html=True)
     if qqq_forecast_data['rv_pred_t+20'][0] >= qqq_forecast_data['rv_t'][0] * 1.10:
         growth = qqq_forecast_data['rv_pred_t+20'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 20-дн рост RV по QQQ > 10% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах QQQ (наибольшая vega, экспирация опционов от {(observe_date + timedelta(20-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(20+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.83), winrate (52%), ожидаемая доходность (31%), сделок (133), средняя vega (33.37)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.83), winrate (52%), ожидаемая доходность (31%), сделок (133), средняя vega (33.37)</i>', unsafe_allow_html=True)
     if qqq_forecast_data['rv_pred_t+20'][0] >= qqq_forecast_data['rv_t'][0] * 1.15:
         growth = qqq_forecast_data['rv_pred_t+20'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 20-дн рост RV по QQQ > 15% (прогноз {growth:.2%}), стратегия: vega-scalping на колл-опционах QQQ (наибольшая vega, экспирация опционов от {(observe_date + timedelta(20-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(20+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.68), winrate (51%), ожидаемая доходность (26%), сделок (103), средняя vega (33.84)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.68), winrate (51%), ожидаемая доходность (26%), сделок (103), средняя vega (33.84)</i>', unsafe_allow_html=True)
     
     st.write('\n2. delta-scalping:')
     if qqq_forecast_data['rv_pred_t+5'][0] >= qqq_forecast_data['rv_t'][0] * 1.05:
         growth = qqq_forecast_data['rv_pred_t+5'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 5-дн рост RV по QQQ > 5% (прогноз {growth:.2%}), стратегия: delta-scalping на колл-опционах QQQ (наибольшая delta, экспирация опционов от {(observe_date + timedelta(5-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(5+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (2.20), winrate (64%), ожидаемая доходность (18%), сделок (112), средняя delta (0.91)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (2.20), winrate (64%), ожидаемая доходность (18%), сделок (112), средняя delta (0.91)</i>', unsafe_allow_html=True)
     if qqq_forecast_data['rv_pred_t+10'][0] >= qqq_forecast_data['rv_t'][0] * 1.05:
         growth = qqq_forecast_data['rv_pred_t+10'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 10-дн рост RV по QQQ > 5% (прогноз {growth:.2%}), стратегия: delta-scalping на колл-опционах QQQ (наибольшая delta, экспирация опционов от {(observe_date + timedelta(10-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(10+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (1.87), winrate (67%), ожидаемая доходность (23%), сделок (171), средняя delta (0.85)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (1.87), winrate (67%), ожидаемая доходность (23%), сделок (171), средняя delta (0.85)</i>', unsafe_allow_html=True)
     if qqq_forecast_data['rv_pred_t+15'][0] >= qqq_forecast_data['rv_t'][0] * 1.05:
         growth = qqq_forecast_data['rv_pred_t+15'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 15-дн рост RV по QQQ > 5% (прогноз {growth:.2%}), стратегия: delta-scalping на колл-опционах QQQ (наибольшая delta, экспирация опционов от {(observe_date + timedelta(15-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(15+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (1.33), winrate (66%), ожидаемая доходность (26%), сделок (200), средняя delta (0.8)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (1.33), winrate (66%), ожидаемая доходность (26%), сделок (200), средняя delta (0.8)</i>', unsafe_allow_html=True)
     if qqq_forecast_data['rv_pred_t+15'][0] >= qqq_forecast_data['rv_t'][0] * 1.1:
         growth = qqq_forecast_data['rv_pred_t+15'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 15-дн рост RV по QQQ > 10% (прогноз {growth:.2%}), стратегия: delta-scalping на колл-опционах QQQ (наибольшая delta, экспирация опционов от {(observe_date + timedelta(15-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(15+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (1.55), winrate (67%), ожидаемая доходность (29%), сделок (138), средняя delta (0.9)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (1.55), winrate (67%), ожидаемая доходность (29%), сделок (138), средняя delta (0.9)</i>', unsafe_allow_html=True)
     if qqq_forecast_data['rv_pred_t+20'][0] >= qqq_forecast_data['rv_t'][0] * 1.05:
         growth = qqq_forecast_data['rv_pred_t+20'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 20-дн рост RV по QQQ > 5% (прогноз {growth:.2%}), стратегия: delta-scalping на колл-опционах QQQ (наибольшая delta, экспирация опционов от {(observe_date + timedelta(20-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(20+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (1.39), winrate (63%), ожидаемая доходность (35%), сделок (174), средняя delta (0.77)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (1.39), winrate (63%), ожидаемая доходность (35%), сделок (174), средняя delta (0.77)</i>', unsafe_allow_html=True)
     if qqq_forecast_data['rv_pred_t+20'][0] >= qqq_forecast_data['rv_t'][0] * 1.1:
         growth = qqq_forecast_data['rv_pred_t+20'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 20-дн рост RV по QQQ > 10% (прогноз {growth:.2%}), стратегия: delta-scalping на колл-опционах QQQ (наибольшая delta, экспирация опционов от {(observe_date + timedelta(20-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(20+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (1.30), winrate (65%), ожидаемая доходность (31%), сделок (128), средняя delta (0.78)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (1.30), winrate (65%), ожидаемая доходность (31%), сделок (128), средняя delta (0.78)</i>', unsafe_allow_html=True)
     
     st.write('\n3. straddle:')
     if qqq_forecast_data['rv_pred_t+5'][0] <= qqq_forecast_data['rv_t'][0] * 0.9:
         growth = qqq_forecast_data['rv_pred_t+5'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 5-дн падение RV по QQQ > 10% (прогноз {growth:.2%}), стратегия: straddle на опционах QQQ (самые дальние от страйка колл- и пут-опционы, экспирация опционов от {(observe_date + timedelta(5-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(5+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.37), winrate (51%), ожидаемая доходность (3%), сделок (102)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.37), winrate (51%), ожидаемая доходность (3%), сделок (102)</i>', unsafe_allow_html=True)
     if qqq_forecast_data['rv_pred_t+10'][0] <= qqq_forecast_data['rv_t'][0] * 0.9:
         growth = qqq_forecast_data['rv_pred_t+10'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 10-дн падение RV по QQQ > 10% (прогноз {growth:.2%}), стратегия: straddle на опционах QQQ (самые дальние от страйка колл- и пут-опционы, экспирация опционов от {(observe_date + timedelta(10-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(10+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.37), winrate (50%), ожидаемая доходность (5%), сделок (224)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.37), winrate (50%), ожидаемая доходность (5%), сделок (224)</i>', unsafe_allow_html=True)
     if qqq_forecast_data['rv_pred_t+10'][0] <= qqq_forecast_data['rv_t'][0] * 0.95:
         growth = qqq_forecast_data['rv_pred_t+10'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 10-дн падение RV по QQQ > 5% (прогноз {growth:.2%}), стратегия: straddle на опционах QQQ (ближайшие к страйку колл- и пут-опционы, экспирация опционов от {(observe_date + timedelta(10-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(10+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.26), winrate (48%), ожидаемая доходность (3%), сделок (400)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.26), winrate (48%), ожидаемая доходность (3%), сделок (400)</i>', unsafe_allow_html=True)
     if qqq_forecast_data['rv_pred_t+10'][0] <= qqq_forecast_data['rv_t'][0] * 0.9:
         growth = qqq_forecast_data['rv_pred_t+10'][0] / qqq_forecast_data['rv_t'][0] - 1
         st.write(f"  - 10-дн падение RV по QQQ > 10% (прогноз {growth:.2%}), стратегия: straddle на опционах QQQ (ближайшие к страйку колл- и пут-опционы, экспирация опционов от {(observe_date + timedelta(10-3)).strftime('%Y-%m-%d')} до {(observe_date + timedelta(10+3)).strftime('%Y-%m-%d')})")
-        st.write('    - статистика стратегии: коэф. Шарпа (0.33), winrate (48%), ожидаемая доходность (4%), сделок (224)')
+        st.write('<i>статистика стратегии: коэф. Шарпа (0.33), winrate (48%), ожидаемая доходность (4%), сделок (224)</i>', unsafe_allow_html=True)
