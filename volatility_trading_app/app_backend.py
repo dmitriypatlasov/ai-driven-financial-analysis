@@ -151,7 +151,7 @@ def calculate_p_matrix(state_prices):
     bounds = [(0, 1) for _ in range(size * size)]
 
     # Запускаем оптимизацию
-    result = minimize(error_function, initial_guess, bounds=bounds, constraints=constraints, method='Nelder-Mead')
+    result = minimize(error_function, initial_guess, bounds=bounds, constraints=constraints, method='Powell')
 
     # Преобразуем результат в матрицу и корректируем центральную строку
     p_matrix = result.x.reshape((size, size))
