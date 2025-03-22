@@ -53,7 +53,7 @@ def main():
     recovered_data_qqq, pdf_recovered_qqq = get_recovered_density(data_qqq, 'QQQ')
     
     copula_results, spy_states, qqq_states, observe_date = create_copula(pdf_recovered_spy, pdf_recovered_qqq)
-    st.subheader("Визуализация копулы t-Стьюдента для ожидаемой доходности SPY и QQQ")
+    st.subheader("Визуализация t-копулы Стьюдента для ожидаемой доходности SPY и QQQ")
     figure = copula_plot(spy_states, qqq_states, observe_date)
     if isinstance(figure, go.Figure):
         st.plotly_chart(figure)
